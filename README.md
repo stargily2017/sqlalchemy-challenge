@@ -12,19 +12,49 @@ In this section, you’ll use Python and SQLAlchemy to do a basic climate analys
 Part 2: Design Your Climate App
 Now that you’ve completed your initial analysis, you’ll design a Flask API based on the queries that you just developed. To do so, use Flask to create your routes as follows:
 1.	/
-o	Start at the homepage.
-o	List all the available routes.
+Start at the homepage.
+List all the available routes.
+@app.route("/")
+def homepage():
+    print("Server returns climate app home page...")
+    return (
+        f"Welcome to the Hawaii Climate App!<br/>"
+        f"Available Routes:<br/>"
+        f"/api/v1.0/precipitation<br/>"
+        f"/api/v1.0/stations<br/>"
+        f"/api/v1.0/tobs<br/>"
+        f"/api/v1.0/<start><br/>"
+        f" /api/v1.0/<start>/<end><br/>"
+        f"Format of <start> and <end> date for querying is 'YYYY-MM-DD'"
+    )
 2.	/api/v1.0/precipitation
 o	Convert the query results from your precipitation analysis (i.e. retrieve only the last 12 months of data) to a dictionary using date as the key and prcp as the value.
 o	Return the JSON representation of your dictionary.
+  all the dates and precipitation values put in the precipitation dict, we get the result in the specific period of time for the query date as 12months ago.
 3.	/api/v1.0/stations
 o	Return a JSON list of stations from the dataset.
+  all the statons data put in the bin and give the for loop to get in each specific data. 
+   list_stations = []
+
+    for stn in total_data:
+        station_dict = {}
+
+        station_dict["id"] = stn[0]
+        station_dict["station"] = stn[1]
+        station_dict["name"] = stn[2]
+        station_dict["latitude"] = stn[3]
+        station_dict["longitude"] = stn[4]
+        station_dict["elevation"] = stn[5]
+        
+        list_stations.append(station_dict)
 4.	/api/v1.0/tobs
 o	Query the dates and temperature observations of the most-active station for the previous year of data.
 o	Return a JSON list of temperature observations for the previous year.
+  
 5.	/api/v1.0/<start> and /api/v1.0/<start>/<end>
 o	Return a JSON list of the minimum temperature, the average temperature, and the maximum temperature for a specified start or start-end range.
 o	For a specified start, calculate TMIN, TAVG, and TMAX for all the dates greater than or equal to the start date.
 o	For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive.
+  @app.route("/api/v1.0/<start>"). in this route, we have to give any start date format like 2016-08-23 in the web page. then server returns TMIN , TMAX, TAVG. 
 
 
