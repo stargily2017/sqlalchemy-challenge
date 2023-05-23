@@ -57,6 +57,6 @@ o	For a specified start, calculate TMIN, TAVG, and TMAX for all the dates greate
 o	For a specified start date and end date, calculate TMIN, TAVG, and TMAX for the dates from the start date to the end date, inclusive.
     
     
-  @app.route("/api/v1.0/<start>"). in this route, we have to give any start date format like 2016-08-23 in the web page. then server returns TMIN , TMAX, TAVG. 
+  @app.route("/api/v1.0/<start>"). in this route, we have to give any <start> format like "/api/v1.0/2016-08-23" in the web page. then server returns TMIN , TMAX, TAVG. 
 
 
