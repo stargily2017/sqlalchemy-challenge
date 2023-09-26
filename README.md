@@ -60,5 +60,10 @@ o	For a specified start date and end date, calculate TMIN, TAVG, and TMAX for th
     
     
   @app.route("/api/v1.0/<start>"). in this route, we have to give any <start> format like "/api/v1.0/2016-08-23" in the web page. then server returns TMIN , TMAX, TAVG. 
+Conclusion
+precipitation analysis
+![image](https://github.com/stargily2017/sqlalchemy-challenge/assets/117419179/369241d2-76d5-4255-a36a-fb9ab9c70939)
 
+Temperature vs frequency for all the stations
+![image](https://github.com/stargily2017/sqlalchemy-challenge/assets/117419179/bff59b73-f449-421a-86fd-55db3a2d1837)
 
